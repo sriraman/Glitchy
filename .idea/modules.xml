@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Glitchy.iml" filepath="$PROJECT_DIR$/Glitchy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-gesture/android-gesture.iml" filepath="$PROJECT_DIR$/android-gesture/android-gesture.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-gesture/android-gesture.iml" filepath="$PROJECT_DIR$/android-gesture/android-gesture.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/glitch/glitch.iml" filepath="$PROJECT_DIR$/glitch/glitch.iml" />
       <module fileurl="file://$PROJECT_DIR$/glitch/glitch.iml" filepath="$PROJECT_DIR$/glitch/glitch.iml" />
       <module fileurl="file://$PROJECT_DIR$/glitchappcore/glitchappcore.iml" filepath="$PROJECT_DIR$/glitchappcore/glitchappcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/glitchappcore/glitchappcore.iml" filepath="$PROJECT_DIR$/glitchappcore/glitchappcore.iml" />
       <module fileurl="file://$PROJECT_DIR$/glitchlibrary.iml" filepath="$PROJECT_DIR$/glitchlibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sidemenu/sidemenu.iml" filepath="$PROJECT_DIR$/sidemenu/sidemenu.iml" />
       <module fileurl="file://$PROJECT_DIR$/sidemenu/sidemenu.iml" filepath="$PROJECT_DIR$/sidemenu/sidemenu.iml" />
     </modules>
   </component>

@@ -11,7 +11,7 @@ import android.media.RingtoneManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.support.v7.app.NotificationCompat
+//import android.support.v7.app.NotificationCompat
 import com.kingfisher.easy_sharedpreference_library.SharedPreferencesManager
 
 
@@ -39,17 +39,17 @@ class GlitchyFirebaseMessagingService: FirebaseMessagingService(){
                 PendingIntent.FLAG_ONE_SHOT)
 
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        val notificationBuilder = NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_stat_name)
-                .setContentTitle(title?:"Glitchy")
-                .setContentText(messageBody)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
-                .setContentIntent(pendingIntent)
-
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-
-        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
+//        val notificationBuilder = NotificationCompat.Builder(this)
+//                .setSmallIcon(R.drawable.ic_stat_name)
+//                .setContentTitle(title?:"Glitchy")
+//                .setContentText(messageBody)
+//                .setAutoCancel(true)
+//                .setSound(defaultSoundUri)
+//                .setContentIntent(pendingIntent)
+//
+//        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//
+//        notificationManager.notify(0 /* ID of notification */, notificationBuilder.build())
     }
 }
 

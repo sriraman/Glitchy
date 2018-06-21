@@ -26,19 +26,19 @@ class MenuFragment: Fragment(), ShareAppBottomSheet.OnShareDialogClick {
     var rootview : View? = null
 
     val logoApp : ImageView? by lazy {
-        rootview?.findViewById(R.id.app_logo) as ImageView
+        rootview?.findViewById<ImageView>(R.id.app_logo) as ImageView
     }
 
     val versionApp : TextView by lazy {
-        rootview?.findViewById(R.id.version_text) as TextView
+        rootview?.findViewById<TextView>(R.id.version_text) as TextView
     }
 
     val bemindLink:TextView by lazy {
-        rootview?.findViewById(R.id.bemind_link) as TextView
+        rootview?.findViewById<TextView>(R.id.bemind_link) as TextView
     }
 
     val shareApp : FloatingActionButton by lazy {
-        rootview?.findViewById(R.id.share_app_button) as FloatingActionButton
+        rootview?.findViewById<FloatingActionButton>(R.id.share_app_button) as FloatingActionButton
     }
 
     private val mShareBottomSheet: ShareAppBottomSheet by lazy {

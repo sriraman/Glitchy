@@ -4,6 +4,7 @@
     <string name="app_name">Glitchy</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="facebook_app_id">Facebook</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_open_action">Open</string>
     <string name="title_save_action">Save</string>

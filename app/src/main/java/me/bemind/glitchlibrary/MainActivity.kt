@@ -10,9 +10,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
 import android.view.*
+import com.tuyenmonkey.mkloader.MKLoader
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.Toast
 import me.bemind.glitch.Effect
 import me.bemind.glitchappcore.glitch.ExtendedImageView
 import me.bemind.glitchappcore.*
@@ -20,11 +20,11 @@ import me.bemind.glitchappcore.io.IIOPresenter
 import me.bemind.glitchappcore.io.IOPresenter
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.*
+import android.support.v7.widget.Toolbar
 import android.text.Spannable
 import android.text.SpannableString
 import android.util.Log
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import com.crashlytics.android.Crashlytics
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
@@ -59,13 +59,13 @@ SaveImageBottomSheet.OnSaveImageListener{
     private var effectPanel: ViewGroup? = null
 
     private val effectList by lazy {
-        (findViewById(R.id.effect_list) as RecyclerView).apply {
+        (findViewById<RecyclerView>(R.id.effect_list) as RecyclerView).apply {
             layoutManager = LinearLayoutManager(this@MainActivity,LinearLayoutManager.HORIZONTAL,false)
         }
     }
 
     private val loaderView by lazy {
-        findViewById(R.id.loaderView)
+        findViewById<MKLoader>(R.id.loaderView)
     }
 
     private var toolbar : Toolbar? = null
@@ -74,19 +74,19 @@ SaveImageBottomSheet.OnSaveImageListener{
     private var actionBar : View? = null
 
     private val saveAction : ImageView by lazy {
-        findViewById(R.id.save_effect) as ImageView
+        findViewById<ImageView>(R.id.save_effect) as ImageView
     }
 
     private val cleaAction : ImageView by lazy {
-        findViewById(R.id.clear_effect) as ImageView
+        findViewById<ImageView>(R.id.clear_effect) as ImageView
     }
 
     private val saveSAction by lazy {
-        findViewById(R.id.save_s_button)
+        findViewById<FrameLayout>(R.id.save_s_button)
     }
 
     private val clearSAction by lazy {
-        findViewById(R.id.clear_s_button)
+        findViewById<FrameLayout>(R.id.clear_s_button)
     }
 
     private var appPresenter : IAppPresenter = AppPresenter()
@@ -100,11 +100,11 @@ SaveImageBottomSheet.OnSaveImageListener{
     private var optionMenu: Menu? = null
 
     val sidemenu : SideMenu by lazy {
-        findViewById(R.id.side_menu) as SideMenu
+        findViewById<SideMenu>(R.id.side_menu) as SideMenu
     }
 
     val bar : BarView by lazy {
-        findViewById(R.id.bar) as BarView
+        findViewById<BarView>(R.id.bar) as BarView
     }
 
     val sideMenuToggle : SideMenuToggle by lazy {
@@ -142,7 +142,7 @@ SaveImageBottomSheet.OnSaveImageListener{
     }
 
     private val densityRv by lazy {
-        findViewById(R.id.rv) as RecyclerView
+        findViewById<RecyclerView>(R.id.rv) as RecyclerView
     }
 
     private val densityAdapter by lazy {
@@ -151,11 +151,11 @@ SaveImageBottomSheet.OnSaveImageListener{
     }
 
     private val densityPanel by lazy {
-        findViewById(R.id.density_panel)
+        findViewById<RelativeLayout>(R.id.density_panel)
     }
 
     private val plusInfoPanel by lazy {
-        findViewById(R.id.plus_info_panel) as ViewGroup
+        findViewById<ViewGroup>(R.id.plus_info_panel) as ViewGroup
     }
 
 
@@ -168,9 +168,9 @@ SaveImageBottomSheet.OnSaveImageListener{
 
         GlitchyEventTracker.init(this)
 
-        toolbar = findViewById(R.id.toolbar) as Toolbar
+        toolbar = findViewById<Toolbar>(R.id.toolbar) as Toolbar
 
-        actionBar = findViewById(R.id.action_panel)
+        actionBar = findViewById<BarView>(R.id.action_panel)
 
         cleaAction.setImageDrawable(FontIconDrawable.inflate(this,R.xml.ic_close))
         cleaAction.setOnClickListener {
@@ -201,7 +201,7 @@ SaveImageBottomSheet.OnSaveImageListener{
         sidemenu.sideMenuToggle = sideMenuToggle
         sidemenu.post { sideMenuToggle.syncState() }
 
-        mImageView = findViewById(R.id.imageView) as ExtendedImageView
+        mImageView = findViewById<ImageView>(R.id.imageView) as ExtendedImageView
         mImageView?.setOnClickListener {
 
             if(!(mImageView?.hasHistory?:false)){
@@ -215,9 +215,9 @@ SaveImageBottomSheet.OnSaveImageListener{
 
         appPresenter.restoreInstanceState(this,savedInstanceState)
 
-        effectPanel = findViewById(R.id.effect_panel) as ViewGroup
+        effectPanel = findViewById<ViewGroup>(R.id.effect_panel) as ViewGroup
 
-        findViewById(R.id.void_text_view).setOnClickListener {
+        findViewById<TextView>(R.id.void_text_view).setOnClickListener {
             pickPhotoBS.show()
         }
 
@@ -788,17 +788,17 @@ SaveImageBottomSheet.OnSaveImageListener{
 
             }
             is WebpEffectState -> {
-                val b = view.findViewById(R.id.tap_to_glitch_button) as TextView
+                val b = view.findViewById<TextView>(R.id.tap_to_glitch_button) as TextView
                 b.setText(R.string.tap_here_to_glitch_webp)
 
             }
             is SwapEffectState -> {
-                val b = view.findViewById(R.id.tap_to_glitch_button) as TextView
+                val b = view.findViewById<TextView>(R.id.tap_to_glitch_button) as TextView
                 b.setText(R.string.tap_here_to_swap)
 
             }
             is GlitchEffectState -> {
-                val b = view.findViewById(R.id.tap_to_glitch_button)
+                val b = view.findViewById<TextView>(R.id.tap_to_glitch_button)
 
             }
             is GhostEffectState -> {
@@ -829,7 +829,7 @@ SaveImageBottomSheet.OnSaveImageListener{
             }
 
             is CensoredEffectState ->{
-                val b = view.findViewById(R.id.tap_to_glitch_button) as TextView
+                val b = view.findViewById<TextView>(R.id.tap_to_glitch_button) as TextView
                 b.setText(R.string.double_tap_to_censored)
             }
 
@@ -840,7 +840,7 @@ SaveImageBottomSheet.OnSaveImageListener{
                 val densP = layoutInflater.inflate(R.layout.density_panel,plusInfoPanel,false)
                 plusInfoPanel.addView(densP)
 
-                val denstext = densP.findViewById(R.id.text_density) as TextView
+                val denstext = densP.findViewById<TextView>(R.id.text_density) as TextView
 
                 densP.setOnClickListener {
                     densityPanel.animate().alpha(1f)

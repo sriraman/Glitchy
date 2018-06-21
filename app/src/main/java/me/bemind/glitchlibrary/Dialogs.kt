@@ -4,6 +4,7 @@ import android.content.Context
 import android.support.design.widget.BottomSheetDialog
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 
 /**
  * Created by angelomoroni on 09/04/17.
@@ -56,8 +57,8 @@ class PickPhotoBottomSheet private constructor() : GenericBottomSheet(){
     }
 
     override fun inflateView(view: View) {
-        view.findViewById(R.id.camera_text_view).setOnClickListener { listener?.openCamera() }
-        view.findViewById(R.id.gallery_text_view).setOnClickListener { listener?.openGallery() }
+        view.findViewById<TextView>(R.id.camera_text_view).setOnClickListener { listener?.openCamera() }
+        view.findViewById<TextView>(R.id.gallery_text_view).setOnClickListener { listener?.openGallery() }
     }
 
     interface OnPickPhotoListener{
@@ -86,8 +87,8 @@ class SaveImageBottomSheet private constructor() : GenericBottomSheet(){
     override fun getLayoutResource() = R.layout.save_image_bottom_sheet
 
     override fun inflateView(view: View) {
-        view.findViewById(R.id.share_text_view).setOnClickListener { listener?.shareImage() }
-        view.findViewById(R.id.save_text_view).setOnClickListener { listener?.saveImage() }
+        view.findViewById<TextView>(R.id.share_text_view).setOnClickListener { listener?.shareImage() }
+        view.findViewById<TextView>(R.id.save_text_view).setOnClickListener { listener?.saveImage() }
     }
 
 
@@ -114,19 +115,19 @@ class ShareAppBottomSheet private constructor() : GenericBottomSheet(){
     }
 
     override fun inflateView(view: View) {
-        view.findViewById(R.id.share_text_view).setOnClickListener {
+        view.findViewById<TextView>(R.id.share_text_view).setOnClickListener {
             dismiss()
             listener?.shareAppLink()
         }
-        view.findViewById(R.id.instagram_text_view).setOnClickListener {
+        view.findViewById<TextView>(R.id.instagram_text_view).setOnClickListener {
             dismiss()
             listener?.instagram()
         }
-        view.findViewById(R.id.facebook_text_view).setOnClickListener {
+        view.findViewById<TextView>(R.id.facebook_text_view).setOnClickListener {
             dismiss()
             listener?.facebook()
         }
-        view.findViewById(R.id.rate_text_view).setOnClickListener {
+        view.findViewById<TextView>(R.id.rate_text_view).setOnClickListener {
             dismiss()
             listener?.rateApp()
         }
